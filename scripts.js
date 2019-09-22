@@ -2,7 +2,7 @@ var tileInput = 0;
 var mapWidthHeight = 0;
 var maxTiles = 0;
 var placedTiles = 0;
-var grid = [[]];
+var grid = [];
 
 const tileTypes = [
   {
@@ -24,11 +24,21 @@ const tileTypes = [
   }
 ];
 
+function initialiseGrid(size) {
+  for (var i=0; i < size; i++){
+    grid[i] = [];
+    for (var j=0; j < size; j++){
+      grid[i][j] = 0;
+    }
+  }
+}
+
 function setMaxTilesFromInput(){
   const inputValue = document.getElementById("gridInput").value;
   tileInput = inputValue;
   mapWidthHeight = Math.round(Math.sqrt(tileInput));
   maxTiles = mapWidthHeight * mapWidthHeight;
+  initialiseGrid(mapWidthHeight);
   updateResult(mapWidthHeight);
 }
 
@@ -46,7 +56,7 @@ function placeTile(location, currentTile) {
     return false;
   }
   //is the location empty? if not, STOP//
-  if (grid[location.x][location.y] !== undefined){
+  if (grid[location.x][location.y] !== 0){
     return false;
   }
   //Have I reached the end of the row? if so, STOP//
