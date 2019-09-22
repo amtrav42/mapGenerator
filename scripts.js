@@ -8,19 +8,22 @@ const tileTypes = [
   {
     type:"A",
     neighbour: ["B"],
-    variation: ["a", "b", "c"]
+    variations: ["a", "b", "c"]
   },
   {
     type:"B",
-    neighbour: ["A"]
+    neighbour: ["A"],
+    variations: ["a", "b", "c"]
   },
   {
     type:"C",
-    neighbour: ["D"]
+    neighbour: ["D"],
+    variations: ["a", "b", "c"]
   },
   {
     type:"D",
-    neighbour: ["C"]
+    neighbour: ["C"],
+    variations: ["a", "b", "c"]
   }
 ];
 
@@ -59,15 +62,25 @@ function updateResult(result){
 
 //make the grid output accessable to HTML//
 function outputGridToHTML(){
+  var htmlOutput = "";
   var output = "";
   for (var i=0; i < grid.length; i++){
+    //creating row tag for this row//
+    htmlOutput += "<div class='row'>";
     //append current tile type to output//
     for (var j=0; j < grid.length; j++){
-      output += grid[i][j].type;
+      const currentTile = grid[i][j];
+      output += currentTile.type;
+      const variation = currentTile.variations[Math.floor(Math.random()*currentTile.variations.length)];
+      htmlOutput += "<div class='tile tile_type_" + currentTile.type + variation + "'></div>"
     }
+    //new line for console log output for end of row//
     output += "\n";
+    //closing row tag for this row//
+    htmlOutput += "</div>";
   }
   console.log("output grid: ", output);
+  document.getElementById("mapGrid").innerHTML = htmlOutput;
 }
 
 function placeTile(location, currentTile) {

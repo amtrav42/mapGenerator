@@ -1,0 +1,17 @@
+.tile {
+  width: 25px;
+  height: 25px;
+  border: 1px solid pink;
+}
+.row {
+  display: flex;
+}
+.tile_type_Cc {
+  background-color: red;
+}
+.tile_type_Dc {
+  background-color: black;
+}
+.tile_type_Ac {
+  background-color: blue;
+}
