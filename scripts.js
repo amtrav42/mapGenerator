@@ -24,7 +24,7 @@ const tileTypes = [
   }
 ];
 
-//create the grid based on map with height//
+//create the grid based on map width and height//
 function initialiseGrid(size) {
   for (var i=0; i < size; i++){
     //initialising the row//
@@ -58,6 +58,8 @@ function updateResult(result){
 
 function placeTile(location, currentTile) {
   console.log("current tile;", currentTile);
+  console.log("location in grid: ", location);
+
   //have I reached the max number of tiles? if so, STOP//
   if (placedTiles >= maxTiles) {
     console.log("final grid:", grid);
@@ -87,10 +89,10 @@ function placeTile(location, currentTile) {
   });
   //choose a random tile based on allowed tile array//
   const nextTile = allowedTiles[Math.floor(Math.random()*allowedTiles.length)];
-    //repeat function with next tile and next location//
+  //repeat function with next tile and next location//
   const nextLocation = {
-    x: location.x + 1,
-    y: location.y
+    x: location.x + 1 >= mapWidthHeight ? 0 : location.x + 1,
+    y: location.x + 1 >= mapWidthHeight ? location.y + 1 : location.y
   }
   placeTile(nextLocation, nextTile);
 }
