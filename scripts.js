@@ -24,21 +24,29 @@ const tileTypes = [
   }
 ];
 
+//create the grid based on map with height//
 function initialiseGrid(size) {
   for (var i=0; i < size; i++){
+    //initialising the row//
     grid[i] = [];
     for (var j=0; j < size; j++){
+      //filling the grid with zeros//
       grid[i][j] = 0;
     }
   }
 }
 
 function setMaxTilesFromInput(){
+  //collect input from DOM//
   const inputValue = document.getElementById("gridInput").value;
   tileInput = inputValue;
+  //calculate map width and height, rounded squareroot of user input//
   mapWidthHeight = Math.round(Math.sqrt(tileInput));
+  //total tiles equals map with height squared//
   maxTiles = mapWidthHeight * mapWidthHeight;
+  //feed map width and height into grid initilisation//
   initialiseGrid(mapWidthHeight);
+  //output the calculation to the DOM//
   updateResult(mapWidthHeight);
 }
 
@@ -79,8 +87,7 @@ function placeTile(location, currentTile) {
   });
   //choose a random tile based on allowed tile array//
   const nextTile = allowedTiles[Math.floor(Math.random()*allowedTiles.length)];
-  console.log("Next tile: ", nextTile);
-  //repeat function with next tile and next location//
+    //repeat function with next tile and next location//
   const nextLocation = {
     x: location.x + 1,
     y: location.y
