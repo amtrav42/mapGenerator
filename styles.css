@@ -1,17 +1,55 @@
 .tile {
-  width: 25px;
-  height: 25px;
-  border: 1px solid pink;
+  width: 80px;
+  height: 80px;
 }
 .row {
   display: flex;
 }
-.tile_type_Cc {
-  background-color: red;
+.tile_type_Aa {
+  background-image: url(images/Aa.jpg);
+  background-size: 80px 80px;
 }
-.tile_type_Dc {
-  background-color: black;
+.tile_type_Ab {
+  background-image: url(images/Ab.jpg);
+  background-size: 80px 80px;
 }
 .tile_type_Ac {
-  background-color: blue;
+  background-image: url(images/Ac.jpg);
+  background-size: 80px 80px;
+}
+.tile_type_Ba {
+  background-image: url(images/Ba.jpg);
+  background-size: 80px 80px;
+}
+.tile_type_Bb {
+  background-image: url(images/Bb.jpg);
+  background-size: 80px 80px;
+}
+.tile_type_Bc {
+  background-image: url(images/Bc.jpg);
+  background-size: 80px 80px;
+}
+.tile_type_Ca {
+  background-image: url(images/Ca.jpg);
+  background-size: 80px 80px;
+}
+.tile_type_Cb {
+  background-image: url(images/Cb.jpg);
+  background-size: 80px 80px;
+}
+.tile_type_Cc {
+  background-image: url(images/Cc.jpg);
+  background-size: 80px 80px;
+}
+.tile_type_Da {
+  background-image: url(images/Da.jpg);
+  background-size: 80px 80px;
+}
+.tile_type_Db {
+  background-image: url(images/Db.jpg);
+  background-size: 80px 80px;
+}
+.tile_type_Dc {
+  background-image: url(images/Dc.jpg);
+  background-size: 80px 80px;
 }
